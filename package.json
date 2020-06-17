@@ -1,0 +1,32 @@
+{
+  "name": "fastify-boilerpl8",
+  "version": "1.0.0",
+  "description": "a fastify framework based minimal and flexible web api boilerplate",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsynlms/fastify-boilerpl8.git"
+  },
+  "author": "Huseyin ELMAS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hsynlms/fastify-boilerpl8/issues"
+  },
+  "homepage": "https://github.com/hsynlms/fastify-boilerpl8#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "fastify": "^2.14.1",
+    "fastify-compress": "^2.0.1",
+    "fastify-cookie": "^3.6.1",
+    "fastify-helmet": "^3.0.2",
+    "readdirp": "^3.4.0",
+    "sequelize": "^5.21.12",
+    "sequelize-fastify": "^1.0.2",
+    "winston": "^3.2.1"
+  }
+}
