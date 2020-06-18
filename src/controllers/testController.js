@@ -1,6 +1,6 @@
 'use strict';
 
-// user controller
+// controller function
 const controller = function(app) {
 
   // route prefix for all defined routes in the controller (optional)
