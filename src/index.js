@@ -18,7 +18,7 @@ controllerRegistrar(app)
     // controller registration is done
 
     // create a fastify instance with custom options
-    const fastify = _({ customLogger });
+    const fastify = _({ logger: customLogger });
 
     // register plugins
     pluginRegistrar(fastify);
