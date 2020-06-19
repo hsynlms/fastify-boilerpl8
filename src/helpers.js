@@ -8,13 +8,10 @@ import { fileURLToPath } from 'url';
 const basePath = path.dirname(fileURLToPath(import.meta.url));
 
 // definition of helper methods
-const helpers = Object.assign(
-  Object.create({}),
-  {
-    // gets current project path
-    projectPath: basePath
-  }
-);
+const helpers = {
+  // gets current project path
+  projectPath: basePath
+};
 
 // export the frozen helpers object
 export default Object.freeze(helpers);

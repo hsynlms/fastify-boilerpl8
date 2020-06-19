@@ -8,7 +8,7 @@ const baseHandler = function(method, url, options, handler) {
   // if options are not provided but as handler function instead
   if (!handler && typeof options === 'function') {
     handler = options;
-    options = Object.create({});
+    options = {};
   } else if (handler && typeof handler === 'function') {
     // https://github.com/fastify/fastify/blob/master/lib/route.js
     // validations (taken from fastify repository itself)
@@ -24,19 +24,15 @@ const baseHandler = function(method, url, options, handler) {
   }
 
   // create a new route
-  const route = Object.assign(
-    Object.create({}),
-    options,
-    {
-      method,
-      url: this.routePrefix ? url === '/' ? `/${this.routePrefix}` : `/${this.routePrefix}${url}` : url,
-      handler: handler || (options && options.handler)
-    }
-  );
+  const route = Object.assign({}, options, {
+    method,
+    url: this.routePrefix ? url === '/' ? `/${this.routePrefix}` : `/${this.routePrefix}${url}` : url,
+    handler: handler || (options && options.handler)
+  });
   
   // push the route to the route table
   routes = routes.concat(route);
-};
+}
 
 // declaration of route registrar class
 class routeRegistrar {
