@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:standard": "standard --verbose",
+    "lint:standard": "standard --verbose | snazzy",
     "start": "node ./src/index.js"
   },
   "repository": {
@@ -44,6 +44,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "snazzy": "^8.0.0",
     "standard": "^14.3.4"
   }
 }
