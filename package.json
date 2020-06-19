@@ -13,6 +13,18 @@
     "type": "git",
     "url": "git+https://github.com/hsynlms/fastify-boilerpl8.git"
   },
+  "keywords": [
+    "fastify",
+    "boilerplate",
+    "rest-api",
+    "nodejs",
+    "postgresql",
+    "mysql",
+    "mssql",
+    "sqlite",
+    "starter",
+    "fastify-boilerplate"
+  ],
   "author": "Huseyin ELMAS",
   "license": "MIT",
   "bugs": {
