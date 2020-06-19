@@ -1,7 +1,7 @@
 {
   "name": "fastify-boilerpl8",
   "version": "1.0.0",
-  "description": "a fastify framework based minimal and flexible web api boilerplate",
+  "description": "a fastify-based minimal and flexible web api boilerplate",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
