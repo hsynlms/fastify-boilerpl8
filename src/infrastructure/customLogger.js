@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 // import required modules
-import winston from 'winston';
+import winston from 'winston'
 
 // https://github.com/fastify/example/blob/master/winston-logger/winston-logger.js
 // create a winston logger as a custom logger for fastify
@@ -24,7 +24,7 @@ const logger = winston.createLogger({
     new winston.transports.File({ filename: 'error.log', level: 'error' }),
     new winston.transports.File({ filename: 'combined.log' })
   ]
-});
+})
 
 // export winston logger instance
-export default logger;
+export default logger

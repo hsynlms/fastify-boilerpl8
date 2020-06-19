@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 // definition of configurations
 const configurations = {
@@ -15,7 +15,7 @@ const configurations = {
   webapi: {
     port: 3000
   }
-};
+}
 
 // export the frozen configuration object
-export default Object.freeze(configurations);
+export default Object.freeze(configurations)

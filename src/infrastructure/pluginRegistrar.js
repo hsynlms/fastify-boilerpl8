@@ -1,21 +1,20 @@
 // import required modules
-import chalk from 'chalk';
+import chalk from 'chalk'
 
 // import required local modules
-import configurations from '../configurations.js';
-import modelRegistrar from './modelRegistrar.js';
+import configurations from '../configurations.js'
+import modelRegistrar from './modelRegistrar.js'
 
 // import fastify plugins
-import fastifyCompress from 'fastify-compress';
-import fastifyHelmet from 'fastify-helmet';
-import fastifySequelize from 'sequelize-fastify';
+import fastifyCompress from 'fastify-compress'
+import fastifyHelmet from 'fastify-helmet'
+import fastifySequelize from 'sequelize-fastify'
 
 // fastify-cookie v3.x supports fastify v2.x
-import fastifyCookie from 'fastify-cookie';
+import fastifyCookie from 'fastify-cookie'
 
 // plugin registrar function
 const registerPlugins = fastify => {
-
   // register fastify helmet plugin
   fastify.register(
     fastifyHelmet,
@@ -25,16 +24,16 @@ const registerPlugins = fastify => {
       permittedCrossDomainPolicies: true,
       hsts: false
     }
-  );
+  )
 
   // register fastify compression plugin
   fastify.register(
     fastifyCompress,
     { encodings: ['gzip'] }
-  );
+  )
 
   // register fastify cookie plugin
-  fastify.register(fastifyCookie);
+  fastify.register(fastifyCookie)
 
   // register sequelize fastify plugin
   fastify
@@ -63,27 +62,26 @@ const registerPlugins = fastify => {
     .ready(async () => {
       try {
         // first connection
-        await fastify.db.authenticate();
+        await fastify.db.authenticate()
 
         // import models
-        await modelRegistrar(fastify.db);
+        await modelRegistrar(fastify.db)
 
         // sync models with db
-        //await fastify.db.sync();
+        // await fastify.db.sync();
 
         // log the info
         console.log(
           chalk.green('Database connection is successfully established.')
-        );
-      } catch(err) {
+        )
+      } catch (err) {
         // log the error
         console.log(
           chalk.red(`Database connection could not be established: ${err}`)
-        );
+        )
       }
-    });
-
-};
+    })
+}
 
 // export plugin registrar function
-export default registerPlugins;
+export default registerPlugins
