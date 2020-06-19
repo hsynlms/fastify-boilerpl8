@@ -17,5 +17,5 @@ const configurations = {
   }
 }
 
-// export the frozen configuration object
-export default Object.freeze(configurations)
+// export the configuration object
+export default configurations

@@ -13,5 +13,5 @@ const helpers = {
   projectPath: basePath
 }
 
-// export the frozen helpers object
-export default Object.freeze(helpers)
+// export the helpers object
+export default helpers

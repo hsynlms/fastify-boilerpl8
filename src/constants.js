@@ -7,5 +7,5 @@ const constants = {
   defaultPageSize: 20
 }
 
-// export the frozen constants object
-export default Object.freeze(constants)
+// export the constants object
+export default constants
