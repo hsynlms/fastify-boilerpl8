@@ -9,6 +9,7 @@ import modelRegistrar from './modelRegistrar.js'
 import fastifyCompress from 'fastify-compress'
 import fastifyHelmet from 'fastify-helmet'
 import fastifySequelize from 'sequelize-fastify'
+import fastifyPrettier from 'fastify-prettier'
 
 // fastify-cookie v3.x supports fastify v2.x
 import fastifyCookie from 'fastify-cookie'
