@@ -32,6 +32,9 @@ const registerPlugins = fastify => {
     { encodings: ['gzip'] }
   )
 
+  // register fastify prettier plugin
+  fastify.register(fastifyPrettier)
+
   // register fastify cookie plugin
   fastify.register(fastifyCookie)
 
