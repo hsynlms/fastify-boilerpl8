@@ -1,0 +1,12 @@
+'use strict'
+
+// import required modules
+const path = require('path')
+
+// export sequelize-cli paths
+module.exports = {
+  'config': path.resolve('database.json'),
+  'models-path': path.resolve('src', 'models'),
+  'seeders-path': path.resolve('src', 'models', 'seeders'),
+  'migrations-path': path.resolve('src', 'models', 'migrations')
+}
