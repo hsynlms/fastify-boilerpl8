@@ -62,7 +62,7 @@ const cacheManager = async () => {
     }
 
     // try to get the cached data
-    let cacheData = cache.get(key)
+    let cachedData = cache.get(key)
 
     // if the key is not found in cache and callback function is provided
     // store the returned data from the callback function in cache
@@ -78,12 +78,12 @@ const cacheManager = async () => {
         await setCache(key, data, ttl)
 
         // reset the cached data variable
-        cacheData = data
+        cachedData = data
       }
     }
 
     // return the cached data
-    return cacheData
+    return cachedData
   }
 
   // return cache manger object
