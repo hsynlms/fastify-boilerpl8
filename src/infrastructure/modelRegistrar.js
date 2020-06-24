@@ -2,7 +2,7 @@
 
 // import required modules
 import path from 'path'
-import Sequelize from 'sequelize'
+import { Model, DataTypes } from 'sequelize'
 
 // import required local modules
 import constants from '../constants'
@@ -31,7 +31,7 @@ const registerModels = async (dbCtx) => {
         (await import(`../${modulePath}`))
           .default
           .model
-          .call(null, dbCtx, Sequelize.Model, Sequelize.DataTypes)
+          .call(null, dbCtx, Model, DataTypes)
 
       // put the imported model into model pool
       modelPool[model.name] = model
