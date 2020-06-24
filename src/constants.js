@@ -8,7 +8,11 @@ const constants = {
   schemaFileSuffix: 'Schema.js',
   defaultPageSize: 20,
   // environment name
-  environment: process.env.NODE_ENV
+  environment: process.env.NODE_ENV,
+  // controller methods cache key patterns
+  cacheKeyPatterns: {
+    TEST: 'fbpl8.test-{0}'
+  }
 }
 
 // export the constants object
