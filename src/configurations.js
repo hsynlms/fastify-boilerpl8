@@ -2,18 +2,15 @@
 
 // definition of configurations
 const configurations = {
-  database: {
-    name: '',
-    dialect: '',
-    host: '',
-    port: '',
-    user: {
-      name: '',
-      password: ''
+  development: {
+    webapi: {
+      port: 3000
     }
   },
-  webapi: {
-    port: 3000
+  production: {
+    webapi: {
+      port: 3000
+    }
   }
 }
 

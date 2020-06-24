@@ -4,7 +4,11 @@
 const constants = {
   projectName: 'fastify-boilerpl8',
   controllerFileSuffix: 'Controller.js',
-  defaultPageSize: 20
+  modelFileSuffix: 'Model.js',
+  schemaFileSuffix: 'Schema.js',
+  defaultPageSize: 20,
+  // environment name
+  environment: process.env.NODE_ENV
 }
 
 // export the constants object

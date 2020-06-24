@@ -70,7 +70,7 @@ class routeRegistrar {
     return baseHandler.call(this, 'POST', path, options, handler)
   }
 
-  putt (path, options, handler) {
+  put (path, options, handler) {
     return baseHandler.call(this, 'PUT', path, options, handler)
   }
 
@@ -88,4 +88,4 @@ class routeRegistrar {
 }
 
 // export route list and the registrar class
-export { routes, routeRegistrar as app }
+export { routes, routeRegistrar }

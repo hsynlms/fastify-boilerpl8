@@ -1,0 +1,26 @@
+{
+  "development": {
+    "database": "",
+    "host": "",
+    "username": "",
+    "password": "",
+    "dialect": "",
+    "define": {
+      "timestamps": false,
+      "underscored": false,
+      "freezeTableName": true
+    },
+    "dialectOptions": {
+      "requestTimeout": 30000
+    }
+  },
+  "production": {
+    "database": "",
+    "host": "",
+    "username": "",
+    "password": "",
+    "dialect": "",
+    "define": {},
+    "dialectOptions": {}
+  }
+}

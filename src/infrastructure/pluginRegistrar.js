@@ -1,9 +1,14 @@
+'use strict'
+
 // import required modules
 import chalk from 'chalk'
+import { exec } from 'child_process'
 
 // import required local modules
-import configurations from '../configurations.js'
-import modelRegistrar from './modelRegistrar.js'
+import constants from '../constants'
+import databases from '../../database'
+import modelRegistrar from './modelRegistrar'
+import { version } from '../../package'
 
 // import fastify plugins
 import fastifyCompress from 'fastify-compress'
@@ -65,22 +70,7 @@ const registerPlugins = fastify => {
       fastifySequelize,
       {
         instance: 'db',
-        sequelizeOptions: {
-          database: configurations.database.name,
-          dialect: configurations.database.dialect,
-          host: configurations.database.host,
-          username: configurations.database.user.name,
-          password: configurations.database.user.password,
-          port: configurations.database.port,
-          define: {
-            timestamps: false
-          },
-          dialectOptions: {
-            encrypt: true,
-            trustedConnection: true,
-            requestTimeout: 30000 // 30 seconds
-          }
-        }
+        sequelizeOptions: databases[constants.environment]
       }
     )
     .ready(async () => {
@@ -88,11 +78,21 @@ const registerPlugins = fastify => {
         // first connection
         await fastify.db.authenticate()
 
+        // run database migration(s) programmatically
+        await new Promise((resolve, reject) => {
+          const migrate = exec(
+            'sequelize db:migrate',
+            { env: process.env },
+            err => (err ? reject(err) : resolve())
+          )
+
+          // forward stdout and stderr to this process
+          migrate.stdout.pipe(process.stdout)
+          migrate.stderr.pipe(process.stderr)
+        })
+
         // import models
         await modelRegistrar(fastify.db)
-
-        // sync models with db
-        // await fastify.db.sync();
 
         // log the info
         console.log(

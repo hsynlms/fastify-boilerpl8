@@ -5,12 +5,11 @@ import chalk from 'chalk'
 import _ from 'fastify'
 
 // import required local modules
-import configurations from './configurations.js'
-import constants from './constants.js'
-import customLogger from './infrastructure/customLogger.js'
-import pluginRegistrar from './infrastructure/pluginRegistrar.js'
-import controllerRegistrar from './infrastructure/controllerRegistrar.js'
-import { app, routes } from './infrastructure/routeRegistrar.js'
+import configurations from './configurations'
+import constants from './constants'
+import pluginRegistrar from './infrastructure/pluginRegistrar'
+import controllerRegistrar from './infrastructure/controllerRegistrar'
+import { routeRegistrar as app, routes } from './infrastructure/routeRegistrar'
 
 // register controllers
 controllerRegistrar(app)
@@ -18,7 +17,13 @@ controllerRegistrar(app)
     // controller registration is done
 
     // create a fastify instance with custom options
-    const fastify = _({ logger: customLogger })
+    const fastify = _({ logger: false })
+
+    // log errors
+    fastify.addHook('onError', async (req, reply, error) => {
+      // exception handler middleware
+      // can be set here (like Sentry)
+    })
 
     // register plugins
     pluginRegistrar(fastify)
@@ -27,7 +32,7 @@ controllerRegistrar(app)
     routes.map(route => fastify.route(route))
 
     // make fastify listen the determined port number to handle incoming requests
-    fastify.listen(configurations.webapi.port, (err, address) => {
+    fastify.listen(configurations[constants.environment].webapi.port, (err, address) => {
       // throw error if anything goes wrong while bootsrapping
       if (err) throw err
 
