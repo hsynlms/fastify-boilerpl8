@@ -7,8 +7,11 @@ const schema = {
       type: 'object',
       properties: {
         name: { type: 'string' },
-        year: { type: 'integer' },
-        now: { type: 'date' },
+        dateOfDeath: { type: 'integer' },
+        lastAlbum: {
+          type: 'string',
+          format: 'date'
+        },
         message: { type: 'string' }
       }
     }
