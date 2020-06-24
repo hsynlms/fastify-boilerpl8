@@ -11,10 +11,8 @@
     "db:migrate": "sequelize db:migrate",
     "db:init": "npm run db:migrate && npm run db:seed",
     "start:api": "node -r esm ./src/index.js",
-    "dev:server": "npm run lint:standard && npm run start:api",
-    "prod:server": "npm run start:api",
-    "development": "cross-env NODE_ENV=development npm run dev:server",
-    "production": "cross-env NODE_ENV=production npm run prod:server"
+    "development": "cross-env NODE_ENV=development npm run start:api",
+    "production": "cross-env NODE_ENV=production npm run start:api"
   },
   "repository": {
     "type": "git",
