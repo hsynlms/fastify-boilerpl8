@@ -40,8 +40,7 @@
     "fastify-prettier": "^1.0.1",
     "readdirp": "^3.4.0",
     "sequelize": "^5.21.12",
-    "sequelize-fastify": "^1.0.2",
-    "winston": "^3.2.1"
+    "sequelize-fastify": "^1.0.2"
   },
   "devDependencies": {
     "snazzy": "^8.0.0",
