@@ -1,3 +1,10 @@
+## fastify-boilerpl8
+> A fastify-based minimal and flexible web api boilerplate
+
+<img width="100"
+     src="https://cdn.rawgit.com/feross/standard/master/badge.svg"
+     title="js-standard-style">
+
 ## Contribution
 Contributions and pull requests are kindly welcomed!
 
