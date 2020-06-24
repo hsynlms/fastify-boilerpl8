@@ -11,6 +11,9 @@ import fastifyHelmet from 'fastify-helmet'
 import fastifySequelize from 'sequelize-fastify'
 import fastifyPrettier from 'fastify-prettier'
 
+// fastify-swagger v2.x supports fastify v2.x
+import fastifySwagger from 'fastify-swagger'
+
 // fastify-cookie v3.x supports fastify v2.x
 import fastifyCookie from 'fastify-cookie'
 
@@ -38,6 +41,23 @@ const registerPlugins = fastify => {
 
   // register fastify cookie plugin
   fastify.register(fastifyCookie)
+
+  // register fastify swagger plugin
+  fastify.register(
+    fastifySwagger,
+    {
+      swagger: {
+        info: {
+          title: `${constants.projectName} API Documentation`,
+          version
+        },
+        consumes: ['application/json'],
+        produces: ['application/json']
+      },
+      exposeRoute: true,
+      routePrefix: '/apidocs'
+    }
+  )
 
   // register sequelize fastify plugin
   fastify
