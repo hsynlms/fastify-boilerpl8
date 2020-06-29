@@ -26,15 +26,15 @@ const helpers = {
       return args[c]
     })
   },
-  // loops file by pattern,
-  searchFiles: async (path, filter = '*', callback) => {
-    for await (const module of readdirp(path, { fileFilter: filter })) {
+  // search files/modules by pattern and loop founds
+  searchFiles: async (lookAt, filter = '*', callback) => {
+    for await (const module of readdirp(lookAt, { fileFilter: filter })) {
       // invoke the callback function by passing the found module
       await callback(module)
     }
   },
   // base database query runner
-  queryDb: async (model, query, limit, offset = 0) => {
+  queryDb: async (model, query, limit = 0, offset = 0) => {
     // run the query
     const result = await model[limit === 1 ? 'findOne' : 'findAll']({
       ...query,

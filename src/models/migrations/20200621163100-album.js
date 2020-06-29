@@ -7,9 +7,9 @@ require = require('esm')(module) // eslint-disable-line no-global-assign
 const { AlbumModel } = require('../index')
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, { Model, DataTypes }) => {
     // get the model
-    const model = AlbumModel.model(queryInterface.sequelize, Sequelize.Model, Sequelize.DataTypes)
+    const model = AlbumModel.model(queryInterface.sequelize, Model, DataTypes)
 
     return queryInterface.createTable(
       model.name,
