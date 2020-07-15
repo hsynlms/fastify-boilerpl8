@@ -9,7 +9,7 @@ import helpers from '../helpers'
 import cacheManager from './cacheManager'
 
 // controller registrar function
-const registerControllers = async (app) => {
+const registerControllers = async (fastify, RouteRegistrar) => {
   // definition of schema container
   const schemas = {}
 
@@ -48,7 +48,9 @@ const registerControllers = async (app) => {
 
       // TODO: do instance creation at top-level
       // register the controller module
-      ;(await import(`../${modulePath}`)).default.call(null, new app(), schemas, await cacheManager()) // eslint-disable-line new-cap
+      ;(await import(`../${modulePath}`))
+        .default
+        .call(null, new RouteRegistrar(fastify), schemas, await cacheManager())
     }
   )
 }

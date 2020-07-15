@@ -1,8 +1,5 @@
 'use strict'
 
-// definition of routes
-let routes = []
-
 // base route handler function
 const baseHandler = function (method, url, options, handler) {
   // if options are not provided but as handler function instead
@@ -30,15 +27,20 @@ const baseHandler = function (method, url, options, handler) {
     handler: handler || (options && options.handler)
   })
 
-  // push the route to the route table
-  routes = routes.concat(route)
+  // register the route
+  this.fastify.route(route)
 }
 
 // declaration of route registrar class
 class routeRegistrar {
-  constructor (routePrefix = '') {
-    // routePrefix property can be set in constructor as well
-    this.routePrefix = routePrefix
+  constructor (instance) {
+    if (!instance) {
+      throw Error('routeRegistrar requires fastify instance to be passed in constructor')
+    }
+
+    // class props
+    this.fastify = instance
+    this.routePrefix = ''
   }
 
   // routePrefix getter and setter methods
@@ -49,7 +51,7 @@ class routeRegistrar {
   set routePrefix (value) {
     // value type validation
     if (typeof value !== 'string') {
-      throw Error(`routePrefix expected to be a string: got ${typeof value}`)
+      throw Error(`routePrefix expected to be a string but got: ${typeof value}`)
     }
 
     // set new value
@@ -87,5 +89,5 @@ class routeRegistrar {
   }
 }
 
-// export route list and the registrar class
-export { routes, routeRegistrar }
+// export the registrar class
+export { routeRegistrar }
