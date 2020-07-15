@@ -90,4 +90,4 @@ class routeRegistrar {
 }
 
 // export the registrar class
-export { routeRegistrar }
+export default routeRegistrar
