@@ -12,7 +12,12 @@ import controllerRegistrar from './infrastructure/controllerRegistrar'
 import routeRegistrar from './infrastructure/routeRegistrar'
 
 // create a fastify instance with custom options
-const fastify = _({ logger: false })
+const fastify = _({
+  trustProxy: true,
+  ignoreTrailingSlash: true,
+  // timeout in miliseconds
+  connectionTimeout: 30000
+})
 
 // log errors
 fastify.addHook('onError', async (req, reply, error) => {
