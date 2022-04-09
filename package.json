@@ -46,7 +46,7 @@
     "fastify-helmet": "^4.0.2",
     "fastify-prettier": "^1.1.5",
     "fastify-swagger": "^3.1.2",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.31",
     "node-cache": "^5.1.2",
     "readdirp": "^3.4.0",
