@@ -47,7 +47,7 @@
     "fastify-prettier": "^1.1.5",
     "fastify-swagger": "^3.1.2",
     "moment": "^2.27.0",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.35",
     "node-cache": "^5.1.2",
     "readdirp": "^3.4.0",
     "sequelize": "^6.3.3",
