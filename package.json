@@ -40,7 +40,7 @@
     "chalk": "^4.1.0",
     "cross-env": "^7.0.2",
     "esm": "^3.2.25",
-    "fastify": "^3.0.3",
+    "fastify": "^3.29.4",
     "fastify-compress": "^3.2.1",
     "fastify-cookie": "^4.0.2",
     "fastify-helmet": "^4.0.2",
