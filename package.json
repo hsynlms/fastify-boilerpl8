@@ -57,6 +57,6 @@
   "devDependencies": {
     "snazzy": "^8.0.0",
     "standard": "^14.3.4",
-    "tedious": "^8.3.0"
+    "tedious": "^15.1.3"
   }
 }
